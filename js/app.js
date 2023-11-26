@@ -7,7 +7,7 @@ const box = document.querySelector('.box');
 
 // getData funksiyasini boshqarish
 function getData() {
-  fetch(`http://www.omdbapi.com/?t=${text.value}&apikey=ab5bc292`)
+  fetch(`https://www.omdbapi.com/?t=${text.value}&apikey=ab5bc292`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
