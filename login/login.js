@@ -6,30 +6,37 @@ function validation() {
     if (!username.value.trim()) {
         username.style.outlineColor = "red";
         username.focus();
-        return;
+        return false;
     }
     if (!password.value.trim()) {
         password.style.outlineColor = "red";
         password.focus();
-        return;
+        return false;
     }
+    return true;
 }
 
 btn.addEventListener('click', () => {
-    validation();
+    if (!validation()) {
+        return;
+    }
+
     let data = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
 
     if (data.length) {
-        const userFound = data.some(user => user.username === username.value.trim() && user.password === password.value.trim());
+        const userFound = data.find(user => user.username === username.value.trim() && user.password === password.value.trim());
 
         if (userFound) {
+            // Foydalanuvchi muvaffaqiyatli kirish qilgan bo'lsa, shaxsiy kabinetdagi malumotlarni chiqaring
+            alert(`Xush kelibsiz, ${userFound.username}!`);
+            // Shaxsiy kabinet sahifasiga o'tish
             window.location.href = "http://127.0.0.1:5500/success/success.html";
         } else {
             alert('Siz ro\'yhatdan otmagansiz');
-            window.location.href = "http://127.0.0.1:5500/register.html";
+            window.location.href = "http://127.0.0.1:5500/register/register.html";
         }
     } else {
         alert("Siz ro'yhatdan otmagansiz");
-        window.location.href = "http://127.0.0.1:5500/register.html";
+        window.location.href = "http://127.0.0.1:5500/register/register.html";
     }
 });
