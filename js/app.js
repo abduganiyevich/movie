@@ -67,7 +67,6 @@ function getData() {
 
 
 btn.addEventListener('click', (event) => {
-  event.preventDefault();
   getData();
   text.value = '';
 });

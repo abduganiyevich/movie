@@ -27,9 +27,9 @@ btn.addEventListener('click', () => {
         const userFound = data.find(user => user.username === username.value.trim() && user.password === password.value.trim());
 
         if (userFound) {
-            // Foydalanuvchi muvaffaqiyatli kirish qilgan bo'lsa, shaxsiy kabinetdagi malumotlarni chiqaring
+        
             alert(`Xush kelibsiz, ${userFound.username}!`);
-            // Shaxsiy kabinet sahifasiga o'tish
+
             window.location.href = "http://127.0.0.1:5500/success/success.html";
         } else {
             alert('Siz ro\'yhatdan otmagansiz');
