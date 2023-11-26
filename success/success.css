@@ -19,8 +19,9 @@ header {
 
 .profile {
     display: flex;
-    justify-content: space-around;
-    margin: 2em;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
 }
 
 .profile-info img {
@@ -36,9 +37,7 @@ header {
     cursor: pointer;
 }
 
-.orders {
-    margin: 2em;
-}
+
 
 footer {
     background-color: #333;
